@@ -18,11 +18,10 @@ class Program
 
     private static string Validar(double correlacao)
     {
-        if (correlacao >= 65)
+        if (correlacao <= 72)
             return "Vantagem em abastencer o tanque com alcool";
         return "vantagem em abasteccer o tanque com gasolina";
     }
-
     private static double CoefienteEconomino(double alcool, double gasolina)
             => alcool / gasolina;
 }
