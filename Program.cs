@@ -5,15 +5,24 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("Informa o Preço do alcool R$: ");
-        double.TryParse(Console.ReadLine(), out double alcool);
-        Console.Write("Informa o Preço da Gasolina R$: ");
-        double.TryParse(Console.ReadLine(), out double gasolina);
+        try
+        {
 
-        var correlacao = CoefienteEconomino(alcool, gasolina) * 100;
-        var vantagemEconomina = Validar(correlacao);
+            Console.Write("Informa o Preço do alcool R$: ");
+            double.TryParse(Console.ReadLine(), out double alcool);
+            Console.Write("Informa o Preço da Gasolina R$: ");
+            double.TryParse(Console.ReadLine(), out double gasolina);
 
-        Console.WriteLine($"{correlacao.ToString("F2", CultureInfo.InvariantCulture)} %, \n{vantagemEconomina}");
+            var correlacao = CoefienteEconomino(alcool, gasolina) * 100;
+            var vantagemEconomina = Validar(correlacao);
+
+            Console.WriteLine($"{correlacao.ToString("F2", CultureInfo.InvariantCulture)} %, \n{vantagemEconomina}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erro de Conversão: " + ex.Message);
+        }
+
     }
 
     private static string Validar(double correlacao)
